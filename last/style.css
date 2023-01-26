@@ -7,13 +7,17 @@ body {
 }
 
 main {
-  max-width: 720px;
+  position: relative;
   width: 100%;
   background-color: #ffffff;
   margin: 0 auto;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  display: grid;
+  grid-template-columns: 46% 2fr;
+  align-items: center;
+  justify-content: space-between;
 }
 
 * {
@@ -29,6 +33,9 @@ header {
   display: flex;
   flex-direction: column;
   padding: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 header > span {
@@ -48,6 +55,7 @@ header span:first-child {
   text-align: center;
   border-bottom: 5px solid #1a78c2;
   padding-bottom: 1rem;
+  margin-top: 0;
   margin-bottom: 2rem;
   border-radius: 50%;
   font-size: 2.4em;
@@ -71,7 +79,7 @@ header span:first-child {
   border-radius: 10px;
   font-size: 14px;
 }
-.container .check-list li:not(:last-child) {
+.container ul li:not(:last-child) {
   margin-bottom: 12px;
 }
 .check-list input + label {
@@ -170,12 +178,46 @@ figure figcaption {
 }
 
 .logo {
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: 30px;
-  padding-right: 30px;
+  position: absolute;
+  bottom: 0;
+  left: 3%;
 }
 
 .logo img {
   width: 85px;
+}
+
+@media screen and (max-width: 1024px) {
+  main {
+    grid-template-columns: 100%;
+  }
+
+  header {
+    position: static;
+  }
+
+  figure {
+    max-width: 30%;
+  }
+  figure figcaption {
+    right: 15%;
+  }
+
+  .container h2 {
+    margin-top: 2rem;
+  }
+
+  .logo {
+    position: static;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  figure {
+    max-width: 86%;
+  }
+  figure figcaption {
+    right: 5%;
+  }
 }
